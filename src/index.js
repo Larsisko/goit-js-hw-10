@@ -87,6 +87,7 @@ function fetchCatByBreed(breedId) {
       </div>`;
     })
     .catch(error => {
+      document.querySelector('.error').style.display = 'block';
       console.error('There was a problem with the fetch operation:', error);
     });
 }
