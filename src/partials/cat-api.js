@@ -1,7 +1,8 @@
 import axios from 'axios';
-axios.defaults.headers.common['x-api-key'] = apiKey;
+
 const apiKey =
   'live_dQsNZ0DNtQU2fFVBQ3mGqOSNuREhMUluEfZX2n00H9RCJqh0J1ZiFFhM7B1wS72f';
+axios.defaults.headers.common['x-api-key'] = apiKey;
 const url = 'https://api.thecatapi.com/v1/breeds';
 function fetchBreedsList() {
   document.querySelector('.loader').style.display = 'block';
@@ -66,12 +67,13 @@ function fetchCatByBreed(breedId) {
       const catTemperament = catData.breeds[0].temperament;
 
       catInfoElement.innerHTML = `<div class='catContainer'>
-        <img src="${catData.url}" alt="${catName}" width="460" />
+        <img clas ="cat_img" src="${catData.url}" alt="${catName}"  />
         <h2>${catName}</h2>
         <p><strong>Description:</strong> ${catDescription}</p>
         <p><strong>Temperament:</strong> ${catTemperament}</p>
       </div>`;
     })
+
     .catch(error => {
       document.querySelector('.error').style.display = 'block';
       console.error('There was a problem with the fetch operation:', error);
